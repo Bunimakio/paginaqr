@@ -10,4 +10,4 @@ def qr_image(request):
     esto se almacena en un context con el nombre img"""
 
     img = CodigoQr.objects.all().first()
-    return render(request,'qr/imagen.html',{'img':img})
+    return render(request,'imagen.html',{'img':img})
