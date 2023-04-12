@@ -3,6 +3,9 @@ from django.contrib import admin
 from .models import CodigoQr
 
 
+def qr_login(request):
+
+    return render(request,'home.html',{})
 
 def qr_image(request):
     
@@ -10,4 +13,5 @@ def qr_image(request):
     esto se almacena en un context con el nombre img"""
 
     img = CodigoQr.objects.all().first()
+    print(img)
     return render(request,'imagen.html',{'img':img})

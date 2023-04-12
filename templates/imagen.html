@@ -1,4 +1,4 @@
-{% load static %}
+
 
 <head>
 
@@ -6,23 +6,25 @@
 
 <style>
     h1 {
-        color: blueviolet;
+        color: #ea4c88;
         text-decoration: underline;
+        font-family: sans-serif;
     }
 
     h2 {
-        color: blueviolet;
+        color: #ea4c88;
+        font-family: sans-serif;
     }
 </style>
 
-<body style="background-color:lightblue;">
+<body style="background-color:#606468;">
     <h1><center> You've got to know me  </center></h1>
 
-    {% block content %}
     <div>
         <center> <img src="{{img.imageQr.url}}" alt="my image" /> </center>
     </div>
-    {% endblock content %}
+
 
     <h2> <center> Check out my profile </center> </h2>
+    <p><center><a href="{% url 'logout' %}">Log Out</a></center></p>
 </body>
