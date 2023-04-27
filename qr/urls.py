@@ -7,4 +7,6 @@ urlpatterns = [
     path('',views.qr_login, name='qr_login'),
     path('accounts/login/imagen/', views.qr_image, name='qr_image'),
     path('accounts/logout/home/', views.qr_login, name='qr_image'),
+    path('accounts/login/imagen/cargaQr/', views.qr_add, name='qr_add'),
+
 ]

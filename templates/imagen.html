@@ -18,32 +18,102 @@
         text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
     }
 
+    .img_container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
     .im {
         background-color: rgb(255, 16, 195);
         color: white;
         border: 2px solid black;
-        margin: 20px;
-        padding: 20px;
+        margin: 10px;
+        padding: 10px;
     }
 
-    .logout_text {
-        font-family: Arial, Helvetica, sans-serif;
-        font-weight: 700;
+    .nav_bar {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        box-sizing: border-box;
+        background-color: black;
+        border-style: outset;
+        border-color:#ea4c88;
+        width: 100%;
+        height: 60px;
+
     }
+
+    .home_button, .carga_button, .logout_button {
+
+        height:100%;
+        width:20%;
+        text-align: center;
+        
+
+    }
+
+    .home_button:hover, .carga_button:hover, .logout_button:hover {
+        background-color: #c04c79;
+    }
+
+    .home_text, .carga_text, .logout_text {
+        color:white;
+        font-weight: 700;
+        font-family: Arial;
+    }
+
+    .logout_button {
+        flex: 2;
+        order: 1;
+        text-align: right;
+        padding-right: 10px;
+    }
+
 
 </style>
 
-<body style="background-color:#606468;">
+<body style="background-color:#606468; margin:0; padding:0;">
+
+    <nav class="nav_bar">
+
+        <div class="home_button", onclick="location.href='/'">
+            <div class="home_text">
+                <p> HOME </p>
+            </div>
+        </div>
+
+        <div class="carga_button", onclick="location.href='cargaQr/'">
+            <div class="carga_text"> 
+                <p> CARGAR NUEVO QR </p>
+            </div>
+        </div>
+
+        <!-- {% url 'logout' %} -->
+        <div class="logout_button", onclick="location.href='/accounts/logout/home'"> 
+            <div class="logout_text">
+                <p> {{user.username}} LOG OUT </p>
+            </div>
+        </div>
+
+
+    </nav>
+
     <h1><center> You've got to know me  </center></h1>
 
-    <div class="im">
-        <center> <img src="{{img.imageQr.url}}" alt="my image" /> </center>
-    </div>
+    <div class="img_container">
 
+        {% for images in img %}
+
+        <div class="im">
+            <center> <img src="{{images.imgQr.url}}" alt="my image" /> </center>
+        </div>
+
+        {% endfor %}
+
+    </div>
 
     <h2> <center> Check out my profile </center> </h2>
 
-    <div class="logout_text">
-        <center><a href="{% url 'logout' %}">Log Out</a></center>
-    </div>
 </body>

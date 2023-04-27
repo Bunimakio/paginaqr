@@ -1,0 +1,39 @@
+<html> 
+
+<head>
+
+</head>
+
+<style>
+    .box_form_container {
+        width: 30%;
+        height: 40%;
+        justify-content: center;
+
+    }
+
+
+</style>
+
+<body style="background-color: #606468;">
+
+    <div class="box_form_container">
+        <form method="POST" enctype="multipart/form-data" class="form_qr">
+
+            {% csrf_token %}
+            {{form.as_p}}
+
+            <button type="submit"> Cargar </button>
+
+        </form>
+    </div>
+
+    <div class="volver_text"> 
+        <a href="/accounts/login/imagen/"> Volver </a>
+    </div>
+
+</body>
+
+
+</html>
+
